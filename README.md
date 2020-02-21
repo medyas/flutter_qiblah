@@ -89,3 +89,11 @@ For devices with no sensors, a Map can be displayed with the direction from the 
 check the :memo: [Example Code](https://github.com/medyas/flutter_qiblah/tree/master/example/)
 
 <img src="./screens/flutter_qiblah_screen2.png" alt="Qiblah with maps" width="300">
+
+## Issues
+
+Please file any issues, bugs or feature request as an issue on our [GitHub](https://github.com/medyas/flutter_qiblah/issues) page.
+
+## Want to contribute
+
+If you would like to contribute to the plugin (e.g. by improving the documentation, solving a bug or adding a cool new feature), please carefully review our [contribution guide](CONTRIBUTING.md) and send us your [pull request](https://github.com/medyas/flutter_qiblah/pulls).
