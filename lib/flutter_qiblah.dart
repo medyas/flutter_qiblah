@@ -65,7 +65,7 @@ class FlutterQiblah {
   /// Qiblah varies from 0-360, offset from direction(North)
   static Stream<QiblahDirection> _merge<A, B>(
       Stream<A> streamA, Stream<B> streamB) {
-    return streamA.combineLatest<B, Map<String, dynamic>>(streamB, (dir, pos) {
+    return streamA.combineLatest<B, QiblahDirection>(streamB, (dir, pos) {
       final position = pos as Position;
       final direction = dir as double;
 

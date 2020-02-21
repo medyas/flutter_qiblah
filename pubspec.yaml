@@ -14,6 +14,7 @@ dependencies:
   flutter_compass: ^0.3.6
   geolocator: ^5.2.1
   stream_transform: ^1.1.0
+  vector_math: any
 
 dev_dependencies:
   flutter_test:

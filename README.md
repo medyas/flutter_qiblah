@@ -5,10 +5,23 @@ Flutter Qiblah is a plugin that allows you to display Qiblah direction in you ap
 ## Getting Started
 
 This plugin depends on both [geolocator](https://pub.dev/packages/geolocator) and [flutter_compass](https://pub.dev/packages/flutter_compass). 
+To use this plugin, add `flutter_compass` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/). For example:
+```yaml
+dependencies:
+  flutter_qiblah: '^1.0.0'
+```
+
+## Features
+
+* Check Device Sensor support (Android)
+* Request Location permission
+* Check GPS Status (Enabled and permission status)
+* Receive Qiblah direction, North direction and Qiblah offset from North
+
 
 ## Setup
 
-### iOS
+#### iOS
 Make sure to add keys with appropriate descriptions to the `Info.plist` file.
 
 * `<key>NSLocationAlwaysUsageDescription</key>`
@@ -21,19 +34,12 @@ Make sure to add keys with appropriate descriptions to the `Info.plist` file.
 
 
 
-### Android
+#### Android
 Make sure to add permissions to the `app/src/main/AndroidManifest.xml` file.
 
 * `android.permission.INTERNET`
 * `android.permission.ACCESS_COARSE_LOCATIO`
 * `android.permission.ACCESS_FINE_LOCATION`
-
-## Features
-
-* Check Device Sensor support (Android)
-* Request Location permission
-* Check GPS Status (Enabled and permission status)
-* Receive Qiblah direction, North direction and Qiblah offset from North
 
 ## API
 

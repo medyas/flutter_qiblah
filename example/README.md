@@ -1,4 +1,4 @@
-# flutter_qiblah_example
+# Flutter Qiblah example
 
 Demonstrates how to use the flutter_qiblah plugin.
 
