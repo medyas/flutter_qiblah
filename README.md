@@ -1,6 +1,6 @@
 # Flutter Qiblah
 
-Flutter Qiblah is a plugin that allows you to display Qiblah direction in you app with support for both Android and iOS
+Flutter Qiblah is a plugin that allows you to display Qiblah direction in you app with support for both Android and iOS.
 
 ## Getting Started
 
