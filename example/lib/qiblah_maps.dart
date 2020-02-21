@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_qiblah/flutter_qiblah.dart';
 import 'package:flutter_qiblah_example/loading_indicator.dart';
 import 'package:flutter_qiblah_example/location_error_widget.dart';
-import 'package:flutter_qiblah/flutter_qiblah.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class QiblahMaps extends StatefulWidget {
   static final meccaLatLong = const LatLng(21.422487, 39.826206);
@@ -121,8 +121,8 @@ class _QiblahMapsState extends State<QiblahMaps> {
   }
 
   Future<Position> _checkLocationStatus() async {
-    final status = await FlutterQiblah.checkLocationStatus();
-    if(status["enabled"]) {
+    final locationStatus = await FlutterQiblah.checkLocationStatus();
+    if (locationStatus.enabled) {
       return await Geolocator().getCurrentPosition();
     }
     return null;

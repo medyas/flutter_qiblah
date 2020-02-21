@@ -16,7 +16,7 @@ class FlutterQiblah {
       const MethodChannel('ml.medyas.flutter_qiblah');
   static final FlutterQiblah _instance = FlutterQiblah._();
 
-  Stream<Map<String, dynamic>> _qiblahStream;
+  Stream<QiblahDirection> _qiblahStream;
 
   FlutterQiblah._();
 
@@ -32,23 +32,24 @@ class FlutterQiblah {
       return true;
   }
 
+  /// Request Location permission
   static Future<void> requestPermission() async {
     await Geolocator().getCurrentPosition();
     await Geolocator().checkGeolocationPermissionStatus();
   }
 
   /// get location status: GPS enabled and the permission status with GeolocationStatus
-  static Future<Map<String, dynamic>> checkLocationStatus() async {
+  static Future<LocationStatus> checkLocationStatus() async {
     final status = await Geolocator().checkGeolocationPermissionStatus();
     final enabled = await Geolocator().isLocationServiceEnabled();
-    return {"status": status, "enabled": enabled};
+    return LocationStatus(enabled, status);
   }
 
   /// Provides a stream of Map with current compass and Qiblah direction
   /// {"qiblah": QIBLAH, "direction": DIRECTION}
   /// Direction varies from 0-360, 0 being north.
   /// Qiblah varies from 0-360, offset from direction(North)
-  static Stream<Map<String, dynamic>> get qiblahstream {
+  static Stream<QiblahDirection> get qiblahstream {
     if (_instance._qiblahStream == null) {
       final locationOptions = LocationOptions(accuracy: LocationAccuracy.best);
       _instance._qiblahStream = _merge<double, Position>(FlutterCompass.events,
@@ -62,7 +63,7 @@ class FlutterQiblah {
   /// return a Stream<Map<String, dynamic>> containing compass and Qiblah direction
   /// Direction varies from 0-360, 0 being north.
   /// Qiblah varies from 0-360, offset from direction(North)
-  static Stream<Map<String, dynamic>> _merge<A, B>(
+  static Stream<QiblahDirection> _merge<A, B>(
       Stream<A> streamA, Stream<B> streamB) {
     return streamA.combineLatest<B, Map<String, dynamic>>(streamB, (dir, pos) {
       final position = pos as Position;
@@ -75,7 +76,24 @@ class FlutterQiblah {
       // Adjust Qiblah direction based on North direction
       final qiblah = direction + (360 - offSet);
 
-      return {"qiblah": qiblah, "direction": direction, "offset": offSet};
+      return QiblahDirection(qiblah, direction, offSet);
     });
   }
+}
+
+/// Location Status class, contains the GPS status(Enabled or not) and GeolocationStatus
+class LocationStatus {
+  final bool enabled;
+  final GeolocationStatus status;
+
+  const LocationStatus(this.enabled, this.status);
+}
+
+/// Containing Qiblah, Direction and offset
+class QiblahDirection {
+  final double qiblah;
+  final double direction;
+  final double offset;
+
+  const QiblahDirection(this.qiblah, this.direction, this.offset);
 }

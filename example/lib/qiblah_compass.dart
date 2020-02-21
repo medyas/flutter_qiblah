@@ -1,12 +1,12 @@
 import 'dart:async';
+import 'dart:math' show pi;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_qiblah/flutter_qiblah.dart';
 import 'package:flutter_qiblah_example/loading_indicator.dart';
 import 'package:flutter_qiblah_example/location_error_widget.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:flutter_qiblah/flutter_qiblah.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'dart:math' show pi;
+import 'package:geolocator/geolocator.dart';
 
 class QiblahCompass extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class QiblahCompass extends StatefulWidget {
 
 class _QiblahCompassState extends State<QiblahCompass> {
   final _locationStreamController =
-      StreamController<Map<String, dynamic>>.broadcast();
+      StreamController<LocationStatus>.broadcast();
 
   get stream => _locationStreamController.stream;
 
@@ -32,11 +32,11 @@ class _QiblahCompassState extends State<QiblahCompass> {
       padding: const EdgeInsets.all(8.0),
       child: StreamBuilder(
         stream: stream,
-        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
+        builder: (context, AsyncSnapshot<LocationStatus> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting)
             return LoadingIndicator();
-          if (snapshot.data["enabled"] == true) {
-            switch (snapshot.data["status"] as GeolocationStatus) {
+          if (snapshot.data.enabled == true) {
+            switch (snapshot.data.status) {
               case GeolocationStatus.granted:
                 return QiblahCompassWidget();
 
@@ -70,13 +70,14 @@ class _QiblahCompassState extends State<QiblahCompass> {
   }
 
   Future<void> _checkLocationStatus() async {
-    final status = await FlutterQiblah.checkLocationStatus();
-    if (status["enabled"] && status["status"] == GeolocationStatus.denied) {
+    final locationStatus = await FlutterQiblah.checkLocationStatus();
+    if (locationStatus.enabled &&
+        locationStatus.status == GeolocationStatus.denied) {
       await FlutterQiblah.requestPermission();
       final s = await FlutterQiblah.checkLocationStatus();
       _locationStreamController.sink.add(s);
     } else
-      _locationStreamController.sink.add(status);
+      _locationStreamController.sink.add(locationStatus);
   }
 
   @override
@@ -99,29 +100,27 @@ class QiblahCompassWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: FlutterQiblah.qiblahstream,
-      builder: (_, snapshot) {
+      builder: (_, AsyncSnapshot<QiblahDirection> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting)
           return LoadingIndicator();
 
-        final direction = snapshot.data["direction"] as double;
-        final qiblah = snapshot.data["qiblah"] as double;
-        final offset = snapshot.data["offset"] as double;
+        final qiblahDirection = snapshot.data;
 
         return Stack(
           alignment: Alignment.center,
           children: <Widget>[
             Transform.rotate(
-              angle: ((direction ?? 0) * (pi / 180) * -1),
+              angle: ((qiblahDirection.direction ?? 0) * (pi / 180) * -1),
               child: _compassSvg,
             ),
             Transform.rotate(
-              angle: ((qiblah ?? 0) * (pi / 180) * -1),
+              angle: ((qiblahDirection.qiblah ?? 0) * (pi / 180) * -1),
               alignment: Alignment.center,
               child: _needleSvg,
             ),
             Positioned(
               bottom: 8,
-              child: Text("${offset.toStringAsFixed(3)}°"),
+              child: Text("${qiblahDirection.offset.toStringAsFixed(3)}°"),
             )
           ],
         );
