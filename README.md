@@ -81,11 +81,11 @@ Here is the Example app demo:
 <img src="./screens/flutter_qiblah.gif" alt="Example app Demo" width="300">
 
 Based on the LocationStatus class, you can add a check to see the current status of the GPS and display an error widget if it's disabled or permission is denied. 
-check the :memo: [Example Code](https://github.com/medyas/flutter_qiblah/example/)
+check the :memo: [Example Code](https://github.com/medyas/flutter_qiblah/tree/master/example/)
 
 <img src="./screens/flutter_qiblah_screen1.png" alt="GPS Disabled" width="300">
 
 For devices with no sensors, a Map can be displayed with the direction from the current/selected location to Mecca. 
-check the :memo: [Example Code](https://github.com/medyas/flutter_qiblah/example/)
+check the :memo: [Example Code](https://github.com/medyas/flutter_qiblah/tree/master/example/)
 
-<img src="./screens/flutter_qiblah_screen2.png.png" alt="Qiblah with maps" width="300">
+<img src="./screens/flutter_qiblah_screen2.png" alt="Qiblah with maps" width="300">

@@ -4,7 +4,7 @@ Demonstrates how to use the flutter_qiblah plugin.
 
 ## Usage
 
-The checkout the full example :memo: [Example Code](https://github.com/medyas/flutter_qiblah/example/) 
+The checkout the full example :memo: [Example Code](https://github.com/medyas/flutter_qiblah/tree/master/example/) 
 
 ```dart
 
