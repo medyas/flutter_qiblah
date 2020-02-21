@@ -99,7 +99,7 @@ class QiblahCompassWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: FlutterQiblah.qiblahstream,
+      stream: FlutterQiblah.qiblahStream,
       builder: (_, AsyncSnapshot<QiblahDirection> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting)
           return LoadingIndicator();

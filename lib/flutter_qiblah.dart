@@ -49,7 +49,7 @@ class FlutterQiblah {
   /// {"qiblah": QIBLAH, "direction": DIRECTION}
   /// Direction varies from 0-360, 0 being north.
   /// Qiblah varies from 0-360, offset from direction(North)
-  static Stream<QiblahDirection> get qiblahstream {
+  static Stream<QiblahDirection> get qiblahStream {
     if (_instance._qiblahStream == null) {
       final locationOptions = LocationOptions(accuracy: LocationAccuracy.best);
       _instance._qiblahStream = _merge<double, Position>(FlutterCompass.events,
