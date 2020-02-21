@@ -1,7 +1,6 @@
 name: flutter_qiblah
 description: Flutter Qiblah is a package that allows you to display Qiblah direction in you app with support for both Android and iOS
 version: 1.0.0
-author: medyas
 homepage: https://github.com/medyas/flutter_qiblah
 
 environment:
@@ -14,7 +13,7 @@ dependencies:
   flutter_compass: ^0.3.6
   geolocator: ^5.2.1
   stream_transform: ^1.1.0
-  vector_math: any
+  vector_math: ^2.0.8
 
 dev_dependencies:
   flutter_test:

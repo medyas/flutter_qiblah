@@ -1,9 +1,7 @@
-
-import 'dart:math' show  sin, cos, tan, atan;
+import 'dart:math' show sin, cos, tan, atan;
 import 'package:vector_math/vector_math.dart' show radians, degrees;
 
 class Utils {
-
   static final _deLa = radians(21.422487);
   static final _deLo = radians(39.826206);
 
