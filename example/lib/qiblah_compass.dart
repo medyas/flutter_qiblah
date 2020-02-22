@@ -83,6 +83,7 @@ class _QiblahCompassState extends State<QiblahCompass> {
   @override
   void dispose() {
     _locationStreamController.close();
+    FlutterQiblah().dispose();
     super.dispose();
   }
 }

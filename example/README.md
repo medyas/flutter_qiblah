@@ -2,6 +2,8 @@
 
 Demonstrates how to use the flutter_qiblah plugin.
 
+To run the full example, you have to add Google Maps keys. Checkout the setup in the [Google Maps Plugin](https://pub.dev/packages/google_maps_flutter)
+
 ## Usage
 
 The checkout the full example :memo: [Example Code](https://github.com/medyas/flutter_qiblah/tree/master/example/) 

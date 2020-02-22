@@ -79,6 +79,12 @@ class FlutterQiblah {
       return QiblahDirection(qiblah, direction, offSet);
     });
   }
+
+  /// Close compass stream, and set Qiblah stream to null
+  dispose() {
+    _qiblahStream = null;
+    FlutterCompass().dispose();
+  }
 }
 
 /// Location Status class, contains the GPS status(Enabled or not) and GeolocationStatus
