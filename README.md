@@ -1,7 +1,6 @@
 # Flutter Qiblah
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
-[![pub package](https://img.shields.io/pub/v/flutter_qiblah.svg)](https://pub.dev/packages/flutter_qiblah)
+[![pub package](https://img.shields.io/pub/v/flutter_qiblah.svg)](https://pub.dev/packages/flutter_qiblah) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 
 Flutter Qiblah is a plugin that allows you to display Qiblah direction in you app with support for both Android and iOS.
 
@@ -87,17 +86,17 @@ final _stream = FlutterQiblah.qiblahStream;
 
 Here is the Example app demo:
 
-<img src="https://drive.google.com/uc?export=view&id=19nhSR_VUFczOIriDC2hHJ_nSzhQY8Mic" alt="Example app Demo" width="300">
+![Example app Demo](https://drive.google.com/uc?export=view&id=19nhSR_VUFczOIriDC2hHJ_nSzhQY8Mic)
 
 Based on the LocationStatus class, you can add a check to see the current status of the GPS and display an error widget if it's disabled or permission is denied. 
 check the :memo: [Example Code](https://github.com/medyas/flutter_qiblah/tree/master/example/)
 
-<img src="https://drive.google.com/uc?export=view&id=1vRB_GtFtK9sVCQIJqm3Tslsfy5hxQ6at" alt="GPS Disabled" width="300">
+![GPS Disabled](https://drive.google.com/uc?export=view&id=1vRB_GtFtK9sVCQIJqm3Tslsfy5hxQ6at)
 
 For devices with no sensors, a Map can be displayed with the direction from the current/selected location to Mecca. 
 check the :memo: [Example Code](https://github.com/medyas/flutter_qiblah/tree/master/example/)
 
-<img src="https://drive.google.com/uc?export=view&id=1CeLQXEVYOO08EPDyl7ycOUvdRGoxrVjG" alt="Qiblah with maps" width="300">
+![Qiblah with maps](https://drive.google.com/uc?export=view&id=1CeLQXEVYOO08EPDyl7ycOUvdRGoxrVjG)
 
 ## Issues
 
