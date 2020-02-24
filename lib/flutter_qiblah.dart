@@ -6,6 +6,7 @@ import 'package:flutter_compass/flutter_compass.dart';
 import 'package:flutter_qiblah/utils.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:stream_transform/stream_transform.dart' show CombineLatest;
+import 'package:location_permissions/location_permissions.dart';
 
 /// [FlutterQiblah] is a singleton class that provides assess to compass events,
 /// check for sensor support in Android
@@ -32,10 +33,10 @@ class FlutterQiblah {
       return true;
   }
 
-  /// Request Location permission
-  static Future<void> requestPermission() async {
-    await Geolocator().getCurrentPosition();
-    await Geolocator().checkGeolocationPermissionStatus();
+  /// Request Location permission, return GeolocationStatus object
+  static Future<GeolocationStatus> requestPermission() async {
+    await LocationPermissions().requestPermissions();
+    return await Geolocator().checkGeolocationPermissionStatus();
   }
 
   /// get location status: GPS enabled and the permission status with GeolocationStatus

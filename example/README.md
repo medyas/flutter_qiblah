@@ -6,6 +6,9 @@ To run the full example, you have to add Google Maps keys. Checkout the setup in
 
 ## Usage
 
+
+<img src="https://drive.google.com/uc?export=view&id=19nhSR_VUFczOIriDC2hHJ_nSzhQY8Mic" width="300px"> <img src="https://drive.google.com/uc?export=view&id=1vRB_GtFtK9sVCQIJqm3Tslsfy5hxQ6at" width="300px"> <img src="https://drive.google.com/uc?export=view&id=1CeLQXEVYOO08EPDyl7ycOUvdRGoxrVjG" width="300px">
+
 The checkout the full example :memo: [Example Code](https://github.com/medyas/flutter_qiblah/tree/master/example/) 
 
 ```dart

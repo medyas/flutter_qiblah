@@ -51,14 +51,14 @@ In iOS, will directly return `true`.
 
 ```dart
 import 'package:flutter_qiblah/flutter_qiblah.dart';
-final _deviceSupport = await FlutterQiblah.androidDeviceSensorSupport();
+final bool _deviceSupport = await FlutterQiblah.androidDeviceSensorSupport();
 ```
 
 Request GPS Location permission
 
 ```dart
 import 'package:flutter_qiblah/flutter_qiblah.dart';
-await FlutterQiblah.requestPermission();
+final GeolocationStatus status = await FlutterQiblah.requestPermission();
 ```
 
 Check GPS Location Status. Contains 
@@ -68,7 +68,7 @@ Check GPS Location Status. Contains
 
 ```dart
 import 'package:flutter_qiblah/flutter_qiblah.dart';
-final locationStatus = await FlutterQiblah.checkLocationStatus();
+final LocationStatus locationStatus = await FlutterQiblah.checkLocationStatus();
 ```
 
 Qiblah Stream, returns a stream of QiblahDirection, containing: 
@@ -79,7 +79,7 @@ Qiblah Stream, returns a stream of QiblahDirection, containing:
 
 ```dart
 import 'package:flutter_qiblah/flutter_qiblah.dart';
-final _stream = FlutterQiblah.qiblahStream;
+final Stream<QiblahDirection> _stream = FlutterQiblah.qiblahStream;
 ```
 
 ## Screens
