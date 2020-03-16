@@ -1,4 +1,8 @@
 
+## 1.0.2+1
+
+* upgraded `flutter_compass` version
+
 ## 1.0.2
 
 * updated the `requestPermission` method to return `GeolocationStatus` object
