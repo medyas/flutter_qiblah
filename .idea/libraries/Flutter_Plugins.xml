@@ -2,10 +2,10 @@
   <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
     <CLASSES>
       <root url="file://$PROJECT_DIR$" />
-      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-5.2.1" />
-      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/location_permissions-2.0.4+1" />
-      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/google_api_availability-2.0.2" />
-      <root url="file://C:/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_compass-0.3.6" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/google_api_availability-2.0.4" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/geolocator-5.3.2+2" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/location_permissions-3.0.0" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_compass-0.4.2+1" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
