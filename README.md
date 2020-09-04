@@ -1,16 +1,16 @@
 # Flutter Qiblah
 
-[![pub package](https://img.shields.io/pub/v/flutter_zoom_drawer.svg)](https://pub.dev/packages/flutter_zoom_drawer) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
+[![pub package](https://img.shields.io/pub/v/flutter_qiblah.svg)](https://pub.dev/packages/flutter_qiblah) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 
 
 
 ## Getting Started
 
-To start using this package, add `flutter_zoom_drawer` dependency to your `pubspec.yaml`
+To start using this package, add `flutter_qiblah` dependency to your `pubspec.yaml`
 
 ```yaml
 dependencies:
-  flutter_zoom_drawer: '<latest_release>'
+  flutter_qiblah: '<latest_release>'
 ```
 
 ## Features
@@ -39,8 +39,8 @@ check the :memo: [Example Code](https://github.com/medyas/flutter_qiblah/tree/ma
 
 ## Issues
 
-Please file any issues, bugs or feature request as an issue on our [GitHub](https://github.com/medyas/flutter_zoom_drawer/issues) page.
+Please file any issues, bugs or feature request as an issue on our [GitHub](https://github.com/medyas/flutter_qiblah/issues) page.
 
 ## Want to contribute
 
-If you would like to contribute to the plugin (e.g. by improving the documentation, solving a bug or adding a cool new feature), please carefully review our [contribution guide](CONTRIBUTING.md) and send us your [pull request](https://github.com/medyas/flutter_zoom_drawer/pulls).
+If you would like to contribute to the plugin (e.g. by improving the documentation, solving a bug or adding a cool new feature), please carefully review our [contribution guide](CONTRIBUTING.md) and send us your [pull request](https://github.com/medyas/flutter_qiblah/pulls).

@@ -123,7 +123,7 @@ class _QiblahMapsState extends State<QiblahMaps> {
   Future<Position> _checkLocationStatus() async {
     final locationStatus = await FlutterQiblah.checkLocationStatus();
     if (locationStatus.enabled) {
-      return await Geolocator().getCurrentPosition();
+      return await getCurrentPosition();
     }
     return null;
   }

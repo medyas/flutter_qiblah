@@ -37,24 +37,25 @@ class _QiblahCompassState extends State<QiblahCompass> {
             return LoadingIndicator();
           if (snapshot.data.enabled == true) {
             switch (snapshot.data.status) {
-              case GeolocationStatus.granted:
+              case LocationPermission.always:
+              case LocationPermission.whileInUse:
                 return QiblahCompassWidget();
 
-              case GeolocationStatus.denied:
+              case LocationPermission.denied:
                 return LocationErrorWidget(
                   error: "Location service permission denied",
                   callback: _checkLocationStatus,
                 );
-              case GeolocationStatus.disabled:
+              case LocationPermission.deniedForever:
                 return LocationErrorWidget(
-                  error: "Location service disabled",
+                  error: "Location service Denied Forever !",
                   callback: _checkLocationStatus,
                 );
-              case GeolocationStatus.unknown:
-                return LocationErrorWidget(
-                  error: "Unknown Location service error",
-                  callback: _checkLocationStatus,
-                );
+              // case GeolocationStatus.unknown:
+              //   return LocationErrorWidget(
+              //     error: "Unknown Location service error",
+              //     callback: _checkLocationStatus,
+              //   );
               default:
                 return Container();
             }
@@ -72,8 +73,8 @@ class _QiblahCompassState extends State<QiblahCompass> {
   Future<void> _checkLocationStatus() async {
     final locationStatus = await FlutterQiblah.checkLocationStatus();
     if (locationStatus.enabled &&
-        locationStatus.status == GeolocationStatus.denied) {
-      await FlutterQiblah.requestPermission();
+        locationStatus.status == LocationPermission.denied) {
+      await FlutterQiblah.requestPermissions();
       final s = await FlutterQiblah.checkLocationStatus();
       _locationStreamController.sink.add(s);
     } else
@@ -82,9 +83,9 @@ class _QiblahCompassState extends State<QiblahCompass> {
 
   @override
   void dispose() {
+    super.dispose();
     _locationStreamController.close();
     FlutterQiblah().dispose();
-    super.dispose();
   }
 }
 
