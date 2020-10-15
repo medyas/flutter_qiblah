@@ -1,3 +1,7 @@
+## 1.0.3+2
+
+* Upgraded `flutter_compass` package versions
+
 ## 1.0.3+1
 
 * Upgraded `flutter_compass`, `location_permissions` and `Geolocator` package versions

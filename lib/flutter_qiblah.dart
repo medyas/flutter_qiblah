@@ -50,7 +50,7 @@ class FlutterQiblah {
   /// Qiblah varies from 0-360, offset from direction(North)
   static Stream<QiblahDirection> get qiblahStream {
     if (_instance._qiblahStream == null) {
-      _instance._qiblahStream = _merge<double, Position>(
+      _instance._qiblahStream = _merge<CompassEvent, Position>(
         FlutterCompass.events,
         getPositionStream(),
       );
@@ -67,16 +67,16 @@ class FlutterQiblah {
       Stream<A> streamA, Stream<B> streamB) {
     return streamA.combineLatest<B, QiblahDirection>(streamB, (dir, pos) {
       final position = pos as Position;
-      final direction = dir as double;
+      final event = dir as CompassEvent;
 
       // Calculate the Qiblah offset to North
       final offSet =
           Utils.getOffsetFromNorth(position.latitude, position.longitude);
 
       // Adjust Qiblah direction based on North direction
-      final qiblah = direction + (360 - offSet);
+      final qiblah = event.heading + (360 - offSet);
 
-      return QiblahDirection(qiblah, direction, offSet);
+      return QiblahDirection(qiblah, event.heading, offSet);
     });
   }
 

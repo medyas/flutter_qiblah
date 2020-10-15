@@ -13,10 +13,8 @@ dependencies:
     path: ../
 
   flutter_svg: ^0.19.0
-  google_maps_flutter: ^0.5.32
+  google_maps_flutter: ^1.0.3
 
-
-  flutter_compass: ^0.4.3
   geolocator: ^6.0.0+4
 
 dev_dependencies:
