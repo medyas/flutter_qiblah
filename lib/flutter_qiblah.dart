@@ -34,13 +34,13 @@ class FlutterQiblah {
 
   /// Request Location permission, return GeolocationStatus object
   static Future<LocationPermission> requestPermissions() async {
-    return await requestPermission();
+    return await Geolocator.requestPermission();
   }
 
   /// get location status: GPS enabled and the permission status with GeolocationStatus
   static Future<LocationStatus> checkLocationStatus() async {
-    final status = await checkPermission();
-    final enabled = await isLocationServiceEnabled();
+    final status = await Geolocator.checkPermission();
+    final enabled = await Geolocator.isLocationServiceEnabled();
     return LocationStatus(enabled, status);
   }
 
@@ -52,7 +52,7 @@ class FlutterQiblah {
     if (_instance._qiblahStream == null) {
       _instance._qiblahStream = _merge<CompassEvent, Position>(
         FlutterCompass.events,
-        getPositionStream(),
+        Geolocator.getPositionStream(),
       );
     }
 
