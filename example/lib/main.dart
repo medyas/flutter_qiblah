@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: FutureBuilder(
           future: _deviceSupport,
-          builder: (_, AsyncSnapshot<bool> snapshot) {
+          builder: (_, AsyncSnapshot<bool?> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting)
               return LoadingIndicator();
             if (snapshot.hasError)
@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
                 child: Text("Error: ${snapshot.error.toString()}"),
               );
 
-            if (snapshot.data)
+            if (snapshot.data!)
               return QiblahCompass();
             else
               return QiblahMaps();

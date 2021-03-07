@@ -16,7 +16,7 @@ class FlutterQiblah {
       const MethodChannel('ml.medyas.flutter_qiblah');
   static final FlutterQiblah _instance = FlutterQiblah._();
 
-  Stream<QiblahDirection> _qiblahStream;
+  Stream<QiblahDirection>? _qiblahStream;
 
   FlutterQiblah._();
 
@@ -25,7 +25,7 @@ class FlutterQiblah {
   }
 
   /// Check Android device sensor support
-  static Future<bool> androidDeviceSensorSupport() async {
+  static Future<bool?> androidDeviceSensorSupport() async {
     if (Platform.isAndroid)
       return await _channel.invokeMethod("androidSupportSensor");
     else
@@ -48,7 +48,7 @@ class FlutterQiblah {
   /// {"qiblah": QIBLAH, "direction": DIRECTION}
   /// Direction varies from 0-360, 0 being north.
   /// Qiblah varies from 0-360, offset from direction(North)
-  static Stream<QiblahDirection> get qiblahStream {
+  static Stream<QiblahDirection>? get qiblahStream {
     if (_instance._qiblahStream == null) {
       _instance._qiblahStream = _merge<CompassEvent, Position>(
         FlutterCompass.events,

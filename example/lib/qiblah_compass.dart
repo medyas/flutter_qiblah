@@ -35,8 +35,8 @@ class _QiblahCompassState extends State<QiblahCompass> {
         builder: (context, AsyncSnapshot<LocationStatus> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting)
             return LoadingIndicator();
-          if (snapshot.data.enabled == true) {
-            switch (snapshot.data.status) {
+          if (snapshot.data!.enabled == true) {
+            switch (snapshot.data!.status) {
               case LocationPermission.always:
               case LocationPermission.whileInUse:
                 return QiblahCompassWidget();
@@ -106,17 +106,17 @@ class QiblahCompassWidget extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.waiting)
           return LoadingIndicator();
 
-        final qiblahDirection = snapshot.data;
+        final qiblahDirection = snapshot.data!;
 
         return Stack(
           alignment: Alignment.center,
           children: <Widget>[
             Transform.rotate(
-              angle: ((qiblahDirection.direction ?? 0) * (pi / 180) * -1),
+              angle: (qiblahDirection.direction * (pi / 180) * -1),
               child: _compassSvg,
             ),
             Transform.rotate(
-              angle: ((qiblahDirection.qiblah ?? 0) * (pi / 180) * -1),
+              angle: (qiblahDirection.qiblah * (pi / 180) * -1),
               alignment: Alignment.center,
               child: _needleSvg,
             ),
