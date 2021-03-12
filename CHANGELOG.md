@@ -1,3 +1,7 @@
+## 2.0.0
+
+* Migrated to `Null Safety`
+
 ## 1.0.3+2
 
 * Upgraded `flutter_compass` package versions

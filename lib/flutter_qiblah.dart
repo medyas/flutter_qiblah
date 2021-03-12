@@ -48,15 +48,15 @@ class FlutterQiblah {
   /// {"qiblah": QIBLAH, "direction": DIRECTION}
   /// Direction varies from 0-360, 0 being north.
   /// Qiblah varies from 0-360, offset from direction(North)
-  static Stream<QiblahDirection>? get qiblahStream {
+  static Stream<QiblahDirection> get qiblahStream {
     if (_instance._qiblahStream == null) {
       _instance._qiblahStream = _merge<CompassEvent, Position>(
-        FlutterCompass.events,
+        FlutterCompass.events!,
         Geolocator.getPositionStream(),
       );
     }
 
-    return _instance._qiblahStream;
+    return _instance._qiblahStream!;
   }
 
   /// Merge the compass stream with location updates, and calculate the Qiblah direction
@@ -74,9 +74,9 @@ class FlutterQiblah {
           Utils.getOffsetFromNorth(position.latitude, position.longitude);
 
       // Adjust Qiblah direction based on North direction
-      final qiblah = event.heading + (360 - offSet);
+      final qiblah = (event.heading ?? 0.0) + (360 - offSet);
 
-      return QiblahDirection(qiblah, event.heading, offSet);
+      return QiblahDirection(qiblah, event.heading ?? 0.0, offSet);
     });
   }
 
