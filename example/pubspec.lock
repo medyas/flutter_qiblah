@@ -75,7 +75,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.0.4+3"
+    version: "1.1.0+4"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -185,12 +185,12 @@ packages:
     source: hosted
     version: "2.0.0"
   rxdart:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: rxdart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.26.0"
+    version: "0.24.1"
   sky_engine:
     dependency: transitive
     description: flutter

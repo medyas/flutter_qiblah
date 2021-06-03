@@ -83,7 +83,6 @@ class FlutterQiblah {
   /// Close compass stream, and set Qiblah stream to null
   Future<void> dispose() async {
     _qiblahStream = null;
-    // FlutterCompass().dispose();
   }
 }
 
