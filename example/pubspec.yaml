@@ -1,9 +1,9 @@
 name: flutter_qiblah_example
 description: Demonstrates how to use the flutter_qiblah plugin.
-publish_to: 'https://pub.dev/packages/flutter_qiblah'
+publish_to: "https://pub.dev/packages/flutter_qiblah"
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -17,21 +17,15 @@ dependencies:
 
   geolocator: ^7.0.1
 
-
-dependency_overrides:
-  rxdart: ^0.26.0
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

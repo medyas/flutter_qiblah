@@ -51,7 +51,7 @@ class FlutterQiblah {
   static Stream<QiblahDirection>? get qiblahStream {
     if (_instance._qiblahStream == null) {
       _instance._qiblahStream = _merge<CompassEvent, Position>(
-        FlutterCompass.events,
+        FlutterCompass.events!,
         Geolocator.getPositionStream(),
       );
     }
@@ -74,16 +74,15 @@ class FlutterQiblah {
           Utils.getOffsetFromNorth(position.latitude, position.longitude);
 
       // Adjust Qiblah direction based on North direction
-      final qiblah = event.heading + (360 - offSet);
+      final qiblah = event.heading! + (360 - offSet);
 
-      return QiblahDirection(qiblah, event.heading, offSet);
+      return QiblahDirection(qiblah, event.heading ?? 0.0, offSet);
     });
   }
 
   /// Close compass stream, and set Qiblah stream to null
   Future<void> dispose() async {
     _qiblahStream = null;
-    FlutterCompass().dispose();
   }
 }
 
