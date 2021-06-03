@@ -1,3 +1,7 @@
+## 2.0.1
+
+* updated dependencies
+
 ## 2.0.0
 
 * Migrated to `Null Safety`
