@@ -4,7 +4,6 @@ import 'package:flutter_qiblah_example/loading_indicator.dart';
 import 'package:flutter_qiblah_example/qiblah_compass.dart';
 import 'package:flutter_qiblah_example/qiblah_maps.dart';
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
