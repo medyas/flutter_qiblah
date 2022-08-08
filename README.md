@@ -13,6 +13,8 @@ dependencies:
   flutter_qiblah: '<latest_release>'
 ```
 
+Updated by MoRmdn
+
 ## Features
 
 * Check Device Sensor support (Android)
