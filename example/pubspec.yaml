@@ -3,7 +3,7 @@ description: Demonstrates how to use the flutter_qiblah plugin.
 publish_to: "https://pub.dev/packages/flutter_qiblah"
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.15.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -12,10 +12,10 @@ dependencies:
   flutter_qiblah:
     path: ../
 
-  flutter_svg: ^0.21.0-nullsafety.0
-  google_maps_flutter: ^2.0.1
+  flutter_svg: ^1.1.5
+  google_maps_flutter: ^2.2.1
 
-  geolocator: ^7.0.1
+  geolocator: ^9.0.2
 
 dev_dependencies:
   flutter_test:

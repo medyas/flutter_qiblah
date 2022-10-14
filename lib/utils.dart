@@ -2,11 +2,15 @@ import 'dart:math' show sin, cos, tan, atan;
 import 'package:vector_math/vector_math.dart' show radians, degrees;
 
 class Utils {
+  Utils._();
+
   static final _deLa = radians(21.422487);
   static final _deLo = radians(39.826206);
 
   static double getOffsetFromNorth(
-      double currentLatitude, double currentLongitude) {
+    double currentLatitude,
+    double currentLongitude,
+  ) {
     var laRad = radians(currentLatitude);
     var loRad = radians(currentLongitude);
 

@@ -57,7 +57,7 @@ class _QiblahCompassState extends State<QiblahCompass> {
               //     callback: _checkLocationStatus,
               //   );
               default:
-                return Container();
+                return const SizedBox();
             }
           } else {
             return LocationErrorWidget(

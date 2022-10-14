@@ -14,15 +14,14 @@ import 'package:stream_transform/stream_transform.dart' show CombineLatest;
 class FlutterQiblah {
   static const MethodChannel _channel =
       const MethodChannel('ml.medyas.flutter_qiblah');
+
   static final FlutterQiblah _instance = FlutterQiblah._();
 
   Stream<QiblahDirection>? _qiblahStream;
 
   FlutterQiblah._();
 
-  factory FlutterQiblah() {
-    return _instance;
-  }
+  factory FlutterQiblah() => _instance;
 
   /// Check Android device sensor support
   static Future<bool?> androidDeviceSensorSupport() async {
@@ -33,9 +32,8 @@ class FlutterQiblah {
   }
 
   /// Request Location permission, return GeolocationStatus object
-  static Future<LocationPermission> requestPermissions() async {
-    return await Geolocator.requestPermission();
-  }
+  static Future<LocationPermission> requestPermissions() =>
+      Geolocator.requestPermission();
 
   /// get location status: GPS enabled and the permission status with GeolocationStatus
   static Future<LocationStatus> checkLocationStatus() async {
@@ -64,21 +62,25 @@ class FlutterQiblah {
   /// Direction varies from 0-360, 0 being north.
   /// Qiblah varies from 0-360, offset from direction(North)
   static Stream<QiblahDirection> _merge<A, B>(
-      Stream<A> streamA, Stream<B> streamB) {
-    return streamA.combineLatest<B, QiblahDirection>(streamB, (dir, pos) {
-      final position = pos as Position;
-      final event = dir as CompassEvent;
+    Stream<A> streamA,
+    Stream<B> streamB,
+  ) =>
+      streamA.combineLatest<B, QiblahDirection>(
+        streamB,
+        (dir, pos) {
+          final position = pos as Position;
+          final event = dir as CompassEvent;
 
-      // Calculate the Qiblah offset to North
-      final offSet =
-          Utils.getOffsetFromNorth(position.latitude, position.longitude);
+          // Calculate the Qiblah offset to North
+          final offSet =
+              Utils.getOffsetFromNorth(position.latitude, position.longitude);
 
-      // Adjust Qiblah direction based on North direction
-      final qiblah = (event.heading ?? 0.0) + (360 - offSet);
+          // Adjust Qiblah direction based on North direction
+          final qiblah = (event.heading ?? 0.0) + (360 - offSet);
 
-      return QiblahDirection(qiblah, event.heading ?? 0.0, offSet);
-    });
-  }
+          return QiblahDirection(qiblah, event.heading ?? 0.0, offSet);
+        },
+      );
 
   /// Close compass stream, and set Qiblah stream to null
   Future<void> dispose() async {
@@ -91,7 +93,10 @@ class LocationStatus {
   final bool enabled;
   final LocationPermission status;
 
-  const LocationStatus(this.enabled, this.status);
+  const LocationStatus(
+    this.enabled,
+    this.status,
+  );
 }
 
 /// Containing Qiblah, Direction and offset
@@ -100,5 +105,9 @@ class QiblahDirection {
   final double direction;
   final double offset;
 
-  const QiblahDirection(this.qiblah, this.direction, this.offset);
+  const QiblahDirection(
+    this.qiblah,
+    this.direction,
+    this.offset,
+  );
 }
