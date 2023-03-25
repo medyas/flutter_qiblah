@@ -13,9 +13,9 @@ dependencies:
     sdk: flutter
 
   flutter_compass: ^0.7.0
-  geolocator: ^9.0.1
-  stream_transform: ^2.0.0
-  vector_math: ^2.1.2
+  geolocator: ^9.0.2
+  stream_transform: ^2.1.0
+  vector_math: ^2.1.4
 
 dev_dependencies:
   flutter_test:
