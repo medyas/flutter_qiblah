@@ -15,7 +15,7 @@ dependencies:
   flutter_compass: ^0.7.0
   geolocator: ^9.0.2
   stream_transform: ^2.0.1
-  vector_math: ^2.1.2
+  vector_math: ^2.1.4
 
 flutter:
   plugin:
