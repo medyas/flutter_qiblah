@@ -17,12 +17,19 @@ class _QiblahCompassState extends State<QiblahCompass> {
   final _locationStreamController =
       StreamController<LocationStatus>.broadcast();
 
-  get stream => _locationStreamController.stream;
+  Stream<LocationStatus> get stream => _locationStreamController.stream;
 
   @override
   void initState() {
-    _checkLocationStatus();
     super.initState();
+    _checkLocationStatus();
+  }
+
+  @override
+  void dispose() {
+    _locationStreamController.close();
+    FlutterQiblah().dispose();
+    super.dispose();
   }
 
   @override
@@ -79,13 +86,6 @@ class _QiblahCompassState extends State<QiblahCompass> {
       _locationStreamController.sink.add(s);
     } else
       _locationStreamController.sink.add(locationStatus);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _locationStreamController.close();
-    FlutterQiblah().dispose();
   }
 }
 

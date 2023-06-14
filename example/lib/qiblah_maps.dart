@@ -9,7 +9,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class QiblahMaps extends StatefulWidget {
   static final meccaLatLong = const LatLng(21.422487, 39.826206);
-  final meccaMarker = Marker(
+  static final meccaMarker = Marker(
     markerId: MarkerId("mecca"),
     position: meccaLatLong,
     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
@@ -21,18 +21,11 @@ class QiblahMaps extends StatefulWidget {
 }
 
 class _QiblahMapsState extends State<QiblahMaps> {
-  Completer<GoogleMapController> _controller = Completer();
+  final Completer<GoogleMapController> _controller = Completer();
   LatLng position = LatLng(36.800636, 10.180358);
 
-  Future<Position?>? _future;
+  late final _future = _checkLocationStatus();
   final _positionStream = StreamController<LatLng>.broadcast();
-
-
-  @override
-  void initState() {
-    _future = _checkLocationStatus();
-    super.initState();
-  }
 
   @override
   void dispose() {
@@ -53,9 +46,9 @@ class _QiblahMapsState extends State<QiblahMaps> {
               error: snapshot.error.toString(),
             );
 
-          if(snapshot.data != null) {
-            final loc = LatLng(
-                snapshot.data!.latitude, snapshot.data!.longitude);
+          if (snapshot.data != null) {
+            final loc =
+                LatLng(snapshot.data!.latitude, snapshot.data!.longitude);
             position = loc;
           } else
             _positionStream.sink.add(position);
@@ -74,7 +67,7 @@ class _QiblahMapsState extends State<QiblahMaps> {
               ),
               markers: Set<Marker>.of(
                 <Marker>[
-                  widget.meccaMarker,
+                  QiblahMaps.meccaMarker,
                   Marker(
                     draggable: true,
                     markerId: MarkerId('Marker'),
@@ -89,27 +82,32 @@ class _QiblahMapsState extends State<QiblahMaps> {
                   ),
                 ],
               ),
-              circles: Set<Circle>.of([
-                Circle(
-                  circleId: CircleId("Circle"),
-                  radius: 10,
-                  center: position,
-                  fillColor: Theme.of(context).primaryColorLight.withAlpha(100),
-                  strokeWidth: 1,
-                  strokeColor:
-                      Theme.of(context).primaryColorDark.withAlpha(100),
-                  zIndex: 3,
-                )
-              ]),
-              polylines: Set<Polyline>.of([
-                Polyline(
-                  polylineId: PolylineId("Line"),
-                  points: [position, QiblahMaps.meccaLatLong],
-                  color: Theme.of(context).primaryColor,
-                  width: 5,
-                  zIndex: 4,
-                )
-              ]),
+              circles: Set<Circle>.of(
+                [
+                  Circle(
+                    circleId: CircleId("Circle"),
+                    radius: 10,
+                    center: position,
+                    fillColor:
+                        Theme.of(context).primaryColorLight.withAlpha(100),
+                    strokeWidth: 1,
+                    strokeColor:
+                        Theme.of(context).primaryColorDark.withAlpha(100),
+                    zIndex: 3,
+                  )
+                ],
+              ),
+              polylines: Set<Polyline>.of(
+                [
+                  Polyline(
+                    polylineId: PolylineId("Line"),
+                    points: [position, QiblahMaps.meccaLatLong],
+                    color: Theme.of(context).primaryColor,
+                    width: 5,
+                    zIndex: 4,
+                  )
+                ],
+              ),
               onMapCreated: (GoogleMapController controller) {
                 _controller.complete(controller);
               },

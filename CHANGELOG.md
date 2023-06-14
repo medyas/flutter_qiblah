@@ -1,3 +1,8 @@
+## 2.2.0
+
+* updated dependencies
+* upgraded gradle version to support latest `Flutter` SDK
+
 ## 2.1.0
 
 * updated dependencies
