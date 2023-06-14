@@ -13,6 +13,8 @@ dependencies:
   flutter_qiblah: '<latest_release>'
 ```
 
+> The package not not work on the iOS Simulator. To test on iOS please use a real device. Checkout [#39](https://github.com/medyas/flutter_qiblah/issues/39)
+
 ## Features
 
 * Check Device Sensor support (Android)
