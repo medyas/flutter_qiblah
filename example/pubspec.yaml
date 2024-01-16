@@ -12,10 +12,10 @@ dependencies:
   flutter_qiblah:
     path: ../
 
-  flutter_svg: ^1.1.5
-  google_maps_flutter: ^2.2.1
+  flutter_svg: ^2.0.9
+  google_maps_flutter: ^2.5.3
 
-  geolocator: ^9.0.2
+  geolocator: ^10.1.0
 
 dev_dependencies:
   flutter_test:
