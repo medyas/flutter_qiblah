@@ -105,6 +105,7 @@ class _QiblahMapsState extends State<QiblahMaps> {
                     color: Theme.of(context).primaryColor,
                     width: 5,
                     zIndex: 4,
+                    geodesic: true,
                   )
                 ],
               ),
