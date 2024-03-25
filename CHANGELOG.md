@@ -1,4 +1,4 @@
-## 2.3.0
+## 3.0.0
 
 * updated `flutter_compass` implementation in android for better accuracy
 
