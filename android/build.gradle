@@ -26,6 +26,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 33
+    namespace "ml.medyas.flutter_qiblah"
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'

@@ -90,10 +90,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_compass_v2
-      sha256: "437b9d0708da5bac1d579c92f2ced16198fa4c74d8cb5343bf23c990a1446380"
+      sha256: "975120c134547f40d323afc55e9ea2edbb89db9e79058860b8cd4bd948fd4f59"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -108,7 +108,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "3.0.0"
+    version: "3.0.1"
   flutter_svg:
     dependency: "direct main"
     description:
