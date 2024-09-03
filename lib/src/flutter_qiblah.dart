@@ -50,7 +50,14 @@ class FlutterQiblah {
     if (_instance._qiblahStream == null) {
       _instance._qiblahStream = _merge<CompassEvent, Position>(
         FlutterCompass.events!,
-        Geolocator.getPositionStream(),
+        Geolocator.getPositionStream().transform(
+          StreamTransformer<Position, Position>.fromHandlers(
+            handleData: (Position position, EventSink<Position> sink) {
+              sink.add(position);
+              sink.close();
+            },
+          ),
+        ),
       );
     }
 
