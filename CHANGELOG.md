@@ -1,3 +1,7 @@
+## 3.0.4
+
+* updated `geolocator` version
+
 ## 3.0.3
 
 * updated `flutter_compass_v2` version
