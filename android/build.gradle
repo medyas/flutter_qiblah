@@ -2,7 +2,7 @@ group 'ml.medyas.flutter_qiblah'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = '1.9.21'
     repositories {
         google()
         jcenter()
