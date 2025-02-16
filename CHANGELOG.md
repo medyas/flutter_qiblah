@@ -1,4 +1,4 @@
-## 3.1.0
+## 3.1.0+1
 
 * updated `geolocator` version
 * update min SDK requirements
