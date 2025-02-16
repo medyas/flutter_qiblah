@@ -1,3 +1,9 @@
+## 3.1.0
+
+* updated `geolocator` version
+* update min SDK requirements
+* remove deprecated android methods
+
 ## 3.0.4
 
 * updated `geolocator` version
