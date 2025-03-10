@@ -84,7 +84,7 @@ class FlutterQiblah {
           // Adjust Qiblah direction based on North direction
           final qiblah = (event.heading ?? 0.0) + (360 - offSet);
 
-          return QiblahDirection(qiblah, event.heading ?? 0.0, offSet);
+          return QiblahDirection(qiblah, event.heading ?? 0.0, offSet,event);
         },
       );
 
@@ -110,10 +110,13 @@ class QiblahDirection {
   final double qiblah;
   final double direction;
   final double offset;
+  final CompassEvent? event;
+
 
   const QiblahDirection(
     this.qiblah,
     this.direction,
     this.offset,
+    this.event,
   );
 }
