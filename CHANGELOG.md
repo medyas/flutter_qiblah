@@ -1,3 +1,7 @@
+## 3.2.0
+
+* updated `geolocator` version
+
 ## 3.1.0+1
 
 * updated `geolocator` version
